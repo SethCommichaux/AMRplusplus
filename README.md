@@ -9,7 +9,7 @@ To calculate the RPKM values, we need to know the number of reads and mean read 
 ```
 > python fastq_read_count.py test.fastq.gz
 
-test.fastq.gz    5       151
+test.fastq.gz    5314989       151
 ```
 
 To find the RPKM values, two input files are required. The first is a file of paths to the AMRplusplus \*.gene files, with one file path per line. For example, 
