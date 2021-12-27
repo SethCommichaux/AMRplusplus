@@ -1,4 +1,4 @@
-# AMRplusplus
+# Finding the RPKM for AMRplusplus output files
 
 These scripts are for creating a matrix of RPKM values from a set of AMRplusplus output files.
 
