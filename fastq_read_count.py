@@ -2,6 +2,7 @@ import sys
 from Bio import SeqIO
 import gzip
 
+
 fastq = sys.argv[1]
 c = 0
 mean_rd_len = []
@@ -12,9 +13,10 @@ if fastq.endswith('.gz'):
                         mean_rd_len.append(len(i.seq))
                         if h == 10000:
                                 break
-        for i in gzip.open(fastq):
-                if i[0] == '+':
-                        c += 1
+        with gzip.open(fastq, "rt") as handle:
+                for i in handle:
+                        if i[0] == '+':
+                                c += 1
 else:
         for h,i in enumerate(SeqIO.parse(fastq,'fastq')):
                 mean_rd_len.append(len(i.seq))
