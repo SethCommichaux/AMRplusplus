@@ -4,8 +4,14 @@ import pandas as pd
 import numpy as np
 
 # user input
+# file of files = sys.argv[1]
+# file of fastq read counts and mean read lengths = sys.argv[2]
 file_of_files = [i.strip() for i in open(sys.argv[1])] # file of AMR result gene file names to process
-total_sample_rds = 1000000
+fastq_metadata = {}
+
+for i in open(sys.argv[2]):
+        sample,rd_count,av_rd_len = i.strip().split('\t')
+        fastq_metadata[sample+'.gene'] = [float(rd_count),float(av_rd_len)]
 
 # process MegaRes
 megares = '/hpc/scratch/Padmini.Ramachandran/Andrea_run3/AMRplusplus/megares_modified_database_v2.00.fasta'
@@ -41,6 +47,7 @@ for geneFile in file_of_files:
                         GeneClass = Gene.split('|')[2].lower()
                         GeneName = Gene.split('|')[3].lower()
                         gene_length = float(geneID_2_geneLen[GeneID])
+                        total_sample_rds = fastq_metadata[geneFile][0]
                         if float(GeneFraction) >= 90:
                                 rpkm = 1000000000*num_mapped_rds/(gene_length*total_sample_rds)
                                 df.loc[GeneClass,geneFile] += rpkm
