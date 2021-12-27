@@ -17,4 +17,16 @@ To find the RPKM values, two input files are required. The first is a file of pa
 /path/to/sample3.gene
 ```
 
+The second input file is a tab delimited list of the samples, the number of reads per sample, and the mean read length. For example, 
+```
+sample1 19545332  151
+sample2 11791473  149
+sample3 12888422  123
+```
+Notice that the sample names correspond to the prefix of the '\*.gene' file names.
+
+With these two file you can run the main script for calculating the rpkm values. This will output two tab-delimited files. One for the rpkm values by gene class and one for the rpkm values per gene. 
+
+```
 python amr_normalized_abundance.py file_of_files.txt read_counts.txt
+```
