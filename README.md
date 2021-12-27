@@ -23,9 +23,9 @@ sample1 19545332  151
 sample2 11791473  149
 sample3 12888422  123
 ```
-Notice that the sample names correspond to the prefix of the '\*.gene' file names.
+Notice that the sample names correspond to the prefix of the \*.gene file names.
 
-With these two file you can run the main script for calculating the rpkm values. This will output two tab-delimited files. One for the rpkm values by gene class and one for the rpkm values per gene. 
+With these two file you can run the main script for calculating the rpkm values. This will output two tab-delimited files. One for the rpkm values by gene class (rpkm_table_class.txt) and one for the rpkm values per gene (rpkm_table_gene.txt). 
 
 ```
 python amr_normalized_abundance.py file_of_files.txt read_counts.txt
