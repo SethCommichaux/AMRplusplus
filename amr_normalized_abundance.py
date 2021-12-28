@@ -32,7 +32,7 @@ for geneFile in file_of_files:
                 if h > 0:
                         Sample,Gene,Hits,GeneFraction = i.strip().split('\t')
                         class_names.append(Gene.split('|')[2].lower())
-                        gene_names.append(Gene.split('|')[3].lower())
+                        gene_names.append('|'.join(Gene.split('|')[3:5]).lower())
 
 class_names = sorted(list(set(class_names)))
 gene_names = sorted(list(set(gene_names)))
@@ -51,7 +51,7 @@ for geneFile in file_of_files:
                         num_mapped_rds = float(Hits)
                         GeneID = Gene.split('|')[0]
                         GeneClass = Gene.split('|')[2].lower()
-                        GeneName = Gene.split('|')[3].lower()
+                        GeneName = '|'.join(Gene.split('|')[3:5]).lower()
                         gene_length = float(geneID_2_geneLen[GeneID])
                         total_sample_rds = fastq_metadata[file_basename][0]
                         if float(GeneFraction) >= 90:
