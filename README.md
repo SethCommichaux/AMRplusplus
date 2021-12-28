@@ -4,12 +4,10 @@ These scripts are for creating a matrix of RPKM values from a set of AMRplusplus
 
 The dependencies are python3 and the numpy, pandas, and biopython python3 libaries.
 
-To calculate the RPKM values, we need to know the number of reads and mean read length per fastq file that was analyzed with AMRplusplus. The following script and command can be used to find the number of reads and mean read length for a fastq file. The script works for fastq files and gzipped fastq files with a "gz" suffix (\*.fastq.gz). The output, in tabular format, lists the base filename, the number of reads, and the mean read length.
+To calculate the RPKM values, we need to know the number of reads and mean read length per fastq file that was analyzed with AMRplusplus. The following script and command can be used to find the number of reads and mean read length for a list of fastq files, provided as a file with one file path per line. The script works for fastq files and gzipped fastq files with a "gz" suffix (\*.fastq.gz). The output is written to a tabular file called "read_counts.txt" whose columns list the base filename, the number of reads, and the mean read length. Here is an example command.
 
 ```
-> python fastq_read_count.py test.fastq.gz
-
-test.fastq.gz    5314989       151
+python fastq_read_count.py file_of_filepaths.txt
 ```
 
 To find the RPKM values, two input files are required. The first is a file of paths to the AMRplusplus \*.gene files, with one file path per line. For example, 
