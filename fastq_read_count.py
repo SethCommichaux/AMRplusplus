@@ -17,7 +17,7 @@ def count_reads(fastq):
                                 if h%4 == 1:
                                         total_rd_len += len(i.strip())
                                         c += 1
-                out.write(fastq.split('/')[-1]+'\t'+str(c)+'\t'+str(int(sum(mean_rd_len)/len(mean_rd_len)))+'\n')
+                out.write(fastq.split('/')[-1]+'\t'+str(c)+'\t'+str(int(total_rd_len/c))+'\n')
 
 file_of_files = sys.argv[1]
 
